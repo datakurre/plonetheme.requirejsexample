@@ -11,7 +11,7 @@ clean:
 
 theme/example/license-selector-bundle.js: \
 	theme/example/license-selector-pattern.js
-	node_modules/.bin/r.js -o config.js
+	NODE_ENV=production node_modules/.bin/r.js -o config.js
 	echo 'require(["license-selector-pattern"]);' \
 	  >> theme/example/license-selector-bundle.js
 
