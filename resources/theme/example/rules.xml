@@ -8,9 +8,6 @@
   <!-- Import Barceloneta rules -->
   <xi:include href="++theme++barceloneta/rules.xml" />
 
-  <!-- Configure webpack built bundles -->
-  <xi:include href="webpack.xml" />
-
   <!-- Inject license selector pattern -->
   <replace css:content="textarea#form-widgets-IDublinCore-rights">
     <xsl:copy>

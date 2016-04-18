@@ -2,12 +2,6 @@
 <html>
 <head>
   <title>Plone Theme</title>
-<% for (var chunk in htmlWebpackPlugin.files.chunks) { %>
-  <% for (var css in htmlWebpackPlugin.files.chunks[chunk].css) { %>
-  <link rel="stylesheet" data-name="bundle-<%= chunk %>"
-        href="<%= htmlWebpackPlugin.files.chunks[chunk].css[css] %>" />
-  <% } %>
-<% } %>
 </head>
 <body>
 <section id="portal-toolbar">
@@ -46,9 +40,5 @@
 <footer id="portal-footer-wrapper" role="contentinfo">
   <div class="container" id="portal-footer"></div>
 </footer>
-<% for (var chunk in htmlWebpackPlugin.files.chunks) { %>
-<script data-name="bundle-<%= chunk %>"
-        src="<%= htmlWebpackPlugin.files.chunks[chunk].entry %>"></script>
-<% } %>
 </body>
 </html>

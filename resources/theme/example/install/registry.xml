@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<registry>
+  <records prefix="plone.resources/license-selector-pattern"
+           interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+    <value key="url">++theme++example/license-selector-pattern</value>
+  </records>
+
+  <records prefix="plone.bundles/license-selector"
+           interface='Products.CMFPlone.interfaces.IBundleRegistry'>
+    <value key="resources" purge="false">
+      <element>license-selector-pattern</element>
+    </value>
+    <value key="jscompilation">++theme++example/license-selector-bundle.js</value>
+    <value key="csscompilation">++theme++example/license-selector-pattern.css</value>
+    <value key="last_compilation">2016-05-01 00:00:00</value>
+    <value key="compile">True</value>
+    <value key="enabled">True</value>
+    <value key="expression">python: member is not None</value>
+    <value key="depends">plone-logged-in</value>
+    <value key="stub_js_modules">
+      <element>react</element>
+      <element>react-dom</element>
+      <element>redux</element>
+      <element>pat-registry</element>
+    </value>
+  </records>
+</registry>

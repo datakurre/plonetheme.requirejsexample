@@ -3,10 +3,12 @@ BUILDOUT_ARGS ?=
 
 all: build
 
-build: bin/instance resources/theme
+build: bin/instance
+	make -C resources build
 
 clean:
-	rm -rf .installed.cfg bin develop-eggs parts test.py resources/theme
+	make -C resources clean
+	rm -rf .installed.cfg bin develop-eggs parts test.py
 
 ###
 
@@ -20,7 +22,3 @@ bin/buildout: bootstrap-buildout.py buildout.cfg
 
 bin/instance: $(BUILDOUT_BIN) buildout.cfg
 	$(BUILDOUT_BIN) -N $(BUILDOUT_ARGS) install instance
-
-resources/theme: resources/Makefile
-	make -C resources build
-

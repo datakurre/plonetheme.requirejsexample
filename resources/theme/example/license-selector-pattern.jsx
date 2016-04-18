@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {createStore, compose} from 'redux'
-import Registry from 'patternslib/core/registry';
+import Registry from 'pat-registry';
 
 const YES = 'YES';
 const NO = 'NO';
@@ -54,7 +54,7 @@ function reducer(state={}, action) {
   return state;
 }
 
-export default class LicenseSelector extends React.Component {
+class LicenseSelector extends React.Component {
   render() {
     const license = this.props.license;
     const sharing = this.props.sharing;

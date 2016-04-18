@@ -1,27 +1,24 @@
-LIB = lib/plonetheme.webpack/.git
-
 all: build
 
-build: clean node_modules $(LIB)
-	node_modules/.bin/webpack
-
-watch: clean node_modules $(LIB)
-	PORT=8090 TARGET=watch node_modules/.bin/webpack-dev-server
+build: clean theme/example/license-selector-bundle.js
 
 clean:
-	rm -rf theme
-
-lib:
-	git submodule update --init --recursive
-	git submodule update --remote --
+	rm -f theme/example/*.js
 
 ###
 
-.PHONY: all build watch clean lib
+.PHONY: all build clean
 
-$(LIB):
-	git submodule update --init --recursive
-	git submodule update --remote --
+theme/example/license-selector-bundle.js: \
+	theme/example/license-selector-pattern.js
+	node_modules/.bin/r.js -o config.js
+	echo 'require(["license-selector-pattern"]);' \
+	  >> theme/example/license-selector-bundle.js
+
+theme/example/license-selector-pattern.js: node_modules
+	node_modules/.bin/babel \
+	  --out-file theme/example/license-selector-pattern.js \
+	  theme/example/license-selector-pattern.jsx
 
 node_modules: package.json
 	npm install
