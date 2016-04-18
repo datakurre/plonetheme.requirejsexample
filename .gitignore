@@ -5,6 +5,7 @@
 /develop-eggs/
 /parts/
 /resources/node_modules/
+/resources/theme/example/*.js
 /src/
 /var/
 /result
